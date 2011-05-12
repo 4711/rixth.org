@@ -18,12 +18,6 @@ module RixthOrg
       haml :index
     end
   
-    helpers do
-      def style_github_repo(repo)
-        "<a href=\"#{repo['url']}\">#{repo['name']}</a>"
-      end
-    end
-  
     def my_git_repos
       from_cache = settings.cache.get('gitrepos')
       return JSON.parse(from_cache) if from_cache
