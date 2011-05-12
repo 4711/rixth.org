@@ -4,12 +4,11 @@ require 'net/http'
 
 module RixthOrg
   class Server < Sinatra::Base
-    set :cache, Dalli::Client.new('localhost:11211', {
-      :expires_in => 5 * 60
+    set :cache, Dalli::Client.new(nil, {
+      :expires_in => 3600 # cache for an hour
     })
     
-    set :public, File.dirname(__FILE__) + '/public'
-  
+    set :public, File.dirname(__FILE__) + '/../public'
   
     get '/' do
       @git = my_git_repos
