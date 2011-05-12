@@ -29,8 +29,10 @@ module RixthOrg
       end
     
       repositories.reject! { |repo| repo['watchers'] < 3 }
+      repositories.sort! { |a, b| b['watchers'] <=> a['watchers'] }
 
       settings.cache.set('gitrepos', JSON.generate(repositories))
+      repositories
     end
   end
 end
