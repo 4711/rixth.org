@@ -8,6 +8,10 @@ module RixthOrg
     })
     
     set :public, File.dirname(__FILE__) + '/../public'
+    
+    before do
+      redirect request.url.sub('//www.', '//') if request.host[0..2] == 'www'
+    end
   
     get '/' do
       @git = my_git_repos
