@@ -1,5 +1,4 @@
 require 'sinatra/base'
-require 'json'
 require 'net/http'
 
 module RixthOrg

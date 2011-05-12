@@ -3,6 +3,7 @@ GEM
   specs:
     dalli (1.0.3)
     haml (3.1.1)
+    json (1.5.1)
     rack (1.2.2)
     sinatra (1.2.6)
       rack (~> 1.1)
@@ -15,4 +16,5 @@ PLATFORMS
 DEPENDENCIES
   dalli
   haml
+  json
   sinatra
