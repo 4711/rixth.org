@@ -15,7 +15,7 @@
         - @git.each do |repo|
           %dt
             %h3
-              %a{:href => repo['url']}= repo['name']
+              %a{:href => repo['homepage'] != '' ? repo['homepage'] : repo['url']}= repo['name']
             %span
               = "#{repo['watchers']} watchers"
           %dd&= repo['description']
