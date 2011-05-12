@@ -8,6 +8,7 @@ module RixthOrg
     })
     
     set :public, File.dirname(__FILE__) + '/../public'
+    set :haml, :format => :html5
     
     before do
       redirect request.url.sub('//www.', '//') if request.host[0..2] == 'www'

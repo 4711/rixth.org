@@ -48,8 +48,8 @@ dl {
   margin-bottom: 25px;
 }
 
-dl h3 {
-  display: inline;
+dl a {
+  font-size: 1.3em;
 }
 dl span {
   font-size: 0.8em;
