@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'net/http'
+require 'net/https'
 
 module RixthOrg
   class Server < Sinatra::Base
@@ -24,7 +24,12 @@ module RixthOrg
       return JSON.parse(from_cache) if from_cache
 
       begin
-        repositories = JSON.parse(Net::HTTP.get_response(URI.parse('http://github.com/api/v2/json/repos/show/rixth')).body)["repositories"]
+        uri = URI.parse("https://api.github.com/users/rixth/repos")
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        request = Net::HTTP::Get.new(uri.request_uri)
+        repositories = JSON.parse(http.request(request).body)
       rescue
         return []
       end
