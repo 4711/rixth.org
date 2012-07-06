@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 10px solid #353535;
   margin: 20px auto;
   padding: 20px 50px;
-  width: 600px;
+  max-width: 600px;
 }
 
 #header {
@@ -99,4 +99,38 @@ dl span {
 }
 dl dd {
   margin-bottom: 10px;
+}
+
+/* Small tablets */
+@media all and (min-width: 480px) and (max-width: 720px) {
+  #wrapper {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+/* Phones */
+@media all and (max-width: 479px) {
+  #wrapper {
+    margin: 0;
+    border-left: none;
+    border-right: none;
+    padding: 10px;
+  }
+  #header {
+    padding: 20px;
+  }
+  #header h1 a {
+    font-size: 40px;
+  }
+}
+
+/* Ultra small screens */
+@media all and (max-width: 241px) {
+  #wrapper {
+    border: none;
+  }
+  #header h1 a {
+    font-size: 30px;
+  }
 }
